@@ -6,100 +6,111 @@
 <title>Sautify — Africa's Music. Africa's Vibe.</title>
 <style>
   :root{
-    --bg:#0a0a0a;
-    --bg-2:#111113;
-    --card:#1c1c1e;
-    --card-2:#2c2c2e;
+    --bg:#000000;
+    --bg-2:#0a0a0a;
+    --card:#111111;
+    --card-2:#1a1a1a;
+    --card-3:#222222;
     --text:#ffffff;
-    --text-2:#a1a1a6;
-    --accent:#FA243C;
-    --sa-amber:#F5A623;
-    --ug-yellow:#FCDC04;
-    --ug-red:#D90000;
-    --glass: rgba(28,28,30,0.72);
-    --border: rgba(255,255,255,0.08);
+    --text-2:#8e8e93;
+    --text-3:#636366;
+    --accent:#4D6BFE;
+    --accent-2:#3B5BDB;
+    --accent-glow:rgba(77,107,254,0.45);
+    --accent-soft:rgba(77,107,254,0.15);
+    --border:rgba(255,255,255,0.07);
+    --glass:rgba(20,20,22,0.72);
   }
-  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-  html,body{margin:0;padding:0;background:#000;color:var(--text);
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0;}
+  html,body{
+    background:#000;color:var(--text);
     font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;
-    -webkit-font-smoothing:antialiased;overscroll-behavior:none;}
+    -webkit-font-smoothing:antialiased;overscroll-behavior:none;
+  }
   body{display:flex;justify-content:center;min-height:100vh;background:#000;}
+
   .phone{
     width:100%;max-width:430px;min-height:100vh;background:var(--bg);
     position:relative;overflow:hidden;display:flex;flex-direction:column;
-    box-shadow:0 0 60px rgba(0,0,0,0.8);
+    box-shadow:0 0 80px rgba(77,107,254,0.12);
   }
 
   .statusbar{
     display:flex;justify-content:space-between;align-items:center;
-    padding:12px 22px 4px;font-size:14px;font-weight:600;letter-spacing:.2px;
+    padding:14px 24px 6px;font-size:14px;font-weight:600;letter-spacing:.2px;
+    color:#fff;
   }
 
   header{
-    padding:6px 20px 12px;display:flex;align-items:center;justify-content:space-between;
-    position:sticky;top:0;z-index:30;backdrop-filter:blur(20px);
-    background:linear-gradient(180deg,rgba(10,10,10,0.95),rgba(10,10,10,0.7));
+    padding:8px 20px 14px;display:flex;align-items:center;justify-content:space-between;
+    position:sticky;top:0;z-index:30;backdrop-filter:blur(24px);
+    background:linear-gradient(180deg,rgba(0,0,0,0.96),rgba(0,0,0,0.7));
   }
-  .brand{display:flex;align-items:center;gap:8px;}
+  .brand{display:flex;align-items:center;gap:9px;}
   .brand-mark{
-    width:26px;height:26px;border-radius:8px;
-    background:conic-gradient(from 210deg,var(--sa-amber),var(--accent),#7b2ff7,var(--sa-amber));
-    display:grid;place-items:center;font-size:14px;font-weight:900;color:#000;
-    box-shadow:0 0 14px rgba(245,166,35,0.4);
+    width:28px;height:28px;border-radius:9px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:grid;place-items:center;font-size:15px;font-weight:900;color:#fff;
+    box-shadow:0 0 18px var(--accent-glow);
   }
-  .brand-name{font-size:19px;font-weight:800;letter-spacing:-.4px;}
-  .brand-name span{color:var(--sa-amber);}
-  .header-actions{display:flex;gap:14px;color:var(--text-2);font-size:18px;}
+  .brand-name{font-size:20px;font-weight:800;letter-spacing:-.5px;}
+  .brand-name span{color:var(--accent);}
+  .header-actions{display:flex;gap:16px;color:var(--text-2);font-size:18px;}
+  .header-actions span{cursor:pointer;transition:color .2s;}
+  .header-actions span:active{color:var(--accent);}
 
-  .scroll{flex:1;overflow-y:auto;padding-bottom:120px;scroll-behavior:smooth;}
+  .scroll{flex:1;overflow-y:auto;padding-bottom:140px;scroll-behavior:smooth;}
   .scroll::-webkit-scrollbar{display:none;}
 
+  .page{display:none;}
+  .page.active{display:block;}
+
   .hero{
-    margin:0 16px 18px;border-radius:22px;overflow:hidden;position:relative;
-    padding:26px 22px 24px;
+    margin:0 16px 20px;border-radius:22px;overflow:hidden;position:relative;
+    padding:28px 24px 26px;
     background:
-      radial-gradient(120% 120% at 0% 0%, rgba(245,166,35,0.35), transparent 55%),
-      radial-gradient(100% 100% at 100% 100%, rgba(250,36,60,0.35), transparent 55%),
-      linear-gradient(135deg,#1b1b1f,#0e0e10);
+      radial-gradient(120% 120% at 0% 0%, rgba(77,107,254,0.35), transparent 55%),
+      radial-gradient(100% 100% at 100% 100%, rgba(59,91,219,0.28), transparent 55%),
+      linear-gradient(135deg,#0d0d15,#050508);
     border:1px solid var(--border);
   }
   .hero-kicker{
-    font-size:11px;letter-spacing:2px;text-transform:uppercase;
-    color:var(--sa-amber);font-weight:700;margin-bottom:8px;
+    font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--accent);font-weight:700;margin-bottom:10px;
   }
-  .hero-title{font-size:28px;font-weight:800;letter-spacing:-.8px;line-height:1.1;margin:0 0 8px;}
-  .hero-title em{font-style:normal;color:var(--sa-amber);}
-  .hero-sub{font-size:13px;color:var(--text-2);line-height:1.5;margin:0 0 16px;max-width:92%;}
+  .hero-title{font-size:30px;font-weight:800;letter-spacing:-1px;line-height:1.08;margin:0 0 10px;}
+  .hero-title em{font-style:normal;color:var(--accent);}
+  .hero-sub{font-size:13px;color:var(--text-2);line-height:1.55;margin:0 0 18px;max-width:94%;}
   .hero-cta{display:flex;gap:10px;}
   .btn{
-    border:none;border-radius:100px;padding:10px 18px;font-size:13px;font-weight:700;
+    border:none;border-radius:100px;padding:11px 20px;font-size:13px;font-weight:700;
     cursor:pointer;font-family:inherit;transition:transform .15s ease,opacity .15s ease;
   }
   .btn:active{transform:scale(0.96);}
-  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 20px rgba(250,36,60,0.4);}
-  .btn-ghost{background:rgba(255,255,255,0.1);color:#fff;backdrop-filter:blur(10px);}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 22px var(--accent-glow);}
+  .btn-ghost{background:rgba(255,255,255,0.08);color:#fff;backdrop-filter:blur(10px);}
 
-  section{margin:24px 0 4px;}
+  section{margin:26px 0 4px;}
   .sec-head{
     display:flex;align-items:center;justify-content:space-between;
-    padding:0 20px 12px;
+    padding:0 20px 14px;
   }
-  .sec-title{font-size:20px;font-weight:800;letter-spacing:-.4px;}
+  .sec-title{font-size:21px;font-weight:800;letter-spacing:-.5px;}
   .sec-link{font-size:13px;color:var(--accent);font-weight:600;cursor:pointer;}
 
   .pillars{display:flex;gap:10px;padding:0 16px 6px;overflow-x:auto;scroll-snap-type:x mandatory;}
   .pillars::-webkit-scrollbar{display:none;}
   .pillar{
-    flex:0 0 auto;width:150px;height:120px;border-radius:18px;padding:14px;
+    flex:0 0 auto;width:152px;height:122px;border-radius:18px;padding:14px;
     scroll-snap-align:start;position:relative;overflow:hidden;cursor:pointer;
     border:1px solid var(--border);
     display:flex;flex-direction:column;justify-content:space-between;
     transition:transform .2s;
   }
   .pillar:active{transform:scale(0.97);}
-  .pillar.p1{background:linear-gradient(160deg,#1f1f24,#101013);}
-  .pillar.p2{background:linear-gradient(160deg,#3a1d0a,#1a0d04);}
-  .pillar.p3{background:linear-gradient(160deg,#1a0a1f,#0a0510);}
+  .pillar.p1{background:linear-gradient(160deg,#0d1228,#06080f);}
+  .pillar.p2{background:linear-gradient(160deg,#0a1430,#05070e);}
+  .pillar.p3{background:linear-gradient(160deg,#0d1a3a,#060810);}
   .pillar-icon{font-size:22px;}
   .pillar-label{font-size:13px;font-weight:700;line-height:1.2;}
   .pillar-sub{font-size:10px;color:var(--text-2);letter-spacing:.3px;}
@@ -107,79 +118,103 @@
   .hscroll{display:flex;gap:14px;padding:0 16px 6px;overflow-x:auto;scroll-snap-type:x mandatory;}
   .hscroll::-webkit-scrollbar{display:none;}
 
-  .album{flex:0 0 auto;width:150px;scroll-snap-align:start;cursor:pointer;}
+  .album{flex:0 0 auto;width:152px;scroll-snap-align:start;cursor:pointer;}
   .album-art{
-    width:150px;height:150px;border-radius:10px;position:relative;overflow:hidden;
-    box-shadow:0 8px 24px rgba(0,0,0,0.5);
-    background-size:cover;background-position:center;
+    width:152px;height:152px;border-radius:10px;position:relative;overflow:hidden;
+    box-shadow:0 8px 26px rgba(0,0,0,0.6);
   }
   .album-art::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,0.35));
+    background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,0.4));
   }
   .play-fab{
-    position:absolute;right:8px;bottom:8px;width:32px;height:32px;border-radius:50%;
-    background:rgba(0,0,0,0.55);backdrop-filter:blur(8px);
+    position:absolute;right:9px;bottom:9px;width:34px;height:34px;border-radius:50%;
+    background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);
     display:grid;place-items:center;font-size:12px;color:#fff;
-    border:1px solid rgba(255,255,255,0.25);z-index:2;
+    border:1px solid rgba(255,255,255,0.2);z-index:2;
   }
-  .album-name{font-size:13px;font-weight:600;margin-top:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .album-sub{font-size:11px;color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px;}
+  .album-name{font-size:13px;font-weight:600;margin-top:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .album-sub{font-size:11px;color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px;}
 
   .weya-hero{
-    margin:0 16px 14px;border-radius:20px;padding:18px;position:relative;overflow:hidden;
+    margin:0 16px 20px;border-radius:22px;padding:22px;position:relative;overflow:hidden;
     background:
-      radial-gradient(120% 100% at 100% 0%, rgba(245,166,35,0.4), transparent 60%),
-      linear-gradient(135deg,#231007,#0d0d10);
+      radial-gradient(120% 100% at 100% 0%, rgba(77,107,254,0.4), transparent 60%),
+      linear-gradient(135deg,#0a1128,#050508);
     border:1px solid var(--border);
   }
   .weya-badge{
-    display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:1.5px;
-    text-transform:uppercase;font-weight:800;color:#0a0a0a;
-    background:var(--sa-amber);padding:4px 9px;border-radius:100px;margin-bottom:10px;
+    display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:1.6px;
+    text-transform:uppercase;font-weight:800;color:#fff;
+    background:var(--accent);padding:5px 10px;border-radius:100px;margin-bottom:12px;
+    box-shadow:0 0 16px var(--accent-glow);
   }
-  .live-dot{width:6px;height:6px;border-radius:50%;background:#0a0a0a;animation:pulse 1.4s infinite;}
+  .live-dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:pulse 1.4s infinite;}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-  .weya-title{font-size:22px;font-weight:800;letter-spacing:-.5px;margin:0 0 4px;}
-  .weya-sub{font-size:12px;color:var(--text-2);margin:0 0 14px;}
+  .weya-title{font-size:24px;font-weight:800;letter-spacing:-.6px;margin:0 0 6px;}
+  .weya-sub{font-size:12px;color:var(--text-2);margin:0 0 16px;line-height:1.5;}
 
-  .event-list{display:flex;flex-direction:column;gap:10px;}
+  .filter-row{display:flex;gap:8px;padding:0 16px 16px;overflow-x:auto;}
+  .filter-row::-webkit-scrollbar{display:none;}
+  .chip{
+    flex:0 0 auto;padding:7px 14px;border-radius:100px;font-size:12px;font-weight:600;
+    background:var(--card-2);color:var(--text-2);border:1px solid var(--border);
+    cursor:pointer;transition:all .2s;
+  }
+  .chip.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+  .event-list{display:flex;flex-direction:column;gap:10px;padding:0 16px;}
   .event{
-    display:flex;gap:12px;align-items:center;padding:12px;border-radius:14px;
+    display:flex;gap:12px;align-items:center;padding:14px;border-radius:16px;
     background:var(--card);border:1px solid var(--border);cursor:pointer;
     transition:transform .15s,background .2s;
   }
   .event:active{transform:scale(0.985);background:var(--card-2);}
   .event-time{
-    flex:0 0 52px;text-align:center;border-right:1px solid var(--border);padding-right:10px;
+    flex:0 0 54px;text-align:center;border-right:1px solid var(--border);padding-right:10px;
   }
-  .event-time .h{font-size:13px;font-weight:800;color:var(--sa-amber);}
-  .event-time .d{font-size:9px;color:var(--text-2);letter-spacing:.5px;text-transform:uppercase;}
+  .event-time .h{font-size:13px;font-weight:800;color:var(--accent);}
+  .event-time .d{font-size:9px;color:var(--text-2);letter-spacing:.5px;text-transform:uppercase;margin-top:2px;}
   .event-body{flex:1;min-width:0;}
   .event-name{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .event-venue{font-size:11px;color:var(--text-2);margin-top:2px;display:flex;align-items:center;gap:5px;}
+  .event-venue{font-size:11px;color:var(--text-2);margin-top:3px;display:flex;align-items:center;gap:5px;}
   .event-tag{
-    font-size:9px;padding:2px 7px;border-radius:100px;background:rgba(245,166,35,0.15);
-    color:var(--sa-amber);font-weight:700;letter-spacing:.3px;margin-top:4px;display:inline-block;
+    font-size:9px;padding:3px 8px;border-radius:100px;background:var(--accent-soft);
+    color:var(--accent);font-weight:700;letter-spacing:.4px;margin-top:6px;display:inline-block;
   }
   .event-rsvp{
     flex:0 0 auto;font-size:11px;font-weight:700;color:var(--accent);
-    padding:6px 10px;border-radius:100px;background:rgba(250,36,60,0.12);
+    padding:7px 11px;border-radius:100px;background:var(--accent-soft);
   }
+
+  .venue-card{
+    display:flex;gap:12px;padding:12px;margin:0 16px 10px;border-radius:16px;
+    background:var(--card);border:1px solid var(--border);cursor:pointer;
+  }
+  .venue-img{
+    width:56px;height:56px;border-radius:12px;flex:0 0 auto;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:grid;place-items:center;font-size:24px;
+  }
+  .venue-info{flex:1;min-width:0;}
+  .venue-name{font-size:14px;font-weight:700;}
+  .venue-meta{font-size:11px;color:var(--text-2);margin-top:3px;}
+  .venue-vibe{font-size:10px;color:var(--accent);margin-top:5px;font-weight:600;}
 
   .radio-card{
     margin:0 16px;border-radius:20px;padding:18px;border:1px solid var(--border);
-    background:linear-gradient(135deg,#1a1220,#0d0d10);
+    background:linear-gradient(135deg,#0a1128,#050508);
   }
-  .radio-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .radio-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
   .radio-logo{
-    width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;
-    background:linear-gradient(135deg,var(--sa-amber),var(--accent));
+    width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:22px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    box-shadow:0 0 20px var(--accent-glow);
   }
   .radio-name{font-size:15px;font-weight:800;}
-  .radio-show{font-size:11px;color:var(--text-2);margin-top:2px;}
+  .radio-show{font-size:11px;color:var(--text-2);margin-top:3px;}
   .radio-eq{display:flex;gap:3px;align-items:flex-end;height:22px;margin-left:auto;}
-  .radio-eq span{width:3px;background:var(--sa-amber);border-radius:2px;animation:eq 1s infinite ease-in-out;}
+  .radio-eq span{width:3px;background:var(--accent);border-radius:2px;animation:eq 1s infinite ease-in-out;}
   .radio-eq span:nth-child(1){animation-delay:0s;height:8px;}
   .radio-eq span:nth-child(2){animation-delay:.15s;height:16px;}
   .radio-eq span:nth-child(3){animation-delay:.3s;height:11px;}
@@ -190,94 +225,104 @@
   .station-list{display:flex;gap:10px;overflow-x:auto;padding-top:6px;}
   .station-list::-webkit-scrollbar{display:none;}
   .station{
-    flex:0 0 auto;width:96px;padding:10px;border-radius:12px;background:var(--card);
+    flex:0 0 auto;width:100px;padding:12px 10px;border-radius:12px;background:var(--card);
     border:1px solid var(--border);text-align:center;cursor:pointer;transition:transform .15s;
   }
   .station:active{transform:scale(0.95);}
-  .station .ico{font-size:20px;margin-bottom:6px;}
+  .station .ico{font-size:22px;margin-bottom:6px;}
   .station .nm{font-size:10px;font-weight:700;line-height:1.2;}
-  .station .sh{font-size:9px;color:var(--text-2);margin-top:2px;}
+  .station .sh{font-size:9px;color:var(--text-2);margin-top:3px;}
 
   .pricing{margin:8px 16px 0;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   .tier{
-    padding:14px;border-radius:16px;border:1px solid var(--border);background:var(--card);
+    padding:16px;border-radius:16px;border:1px solid var(--border);background:var(--card);
     position:relative;overflow:hidden;
   }
-  .tier.hot{border-color:var(--sa-amber);background:linear-gradient(160deg,#2a1a05,#141014);}
+  .tier.hot{border-color:var(--accent);background:linear-gradient(160deg,#0d1228,#05070e);}
   .tier.hot::before{
-    content:"POPULAR";position:absolute;top:8px;right:-24px;transform:rotate(45deg);
-    background:var(--sa-amber);color:#000;font-size:8px;font-weight:900;letter-spacing:1px;
+    content:"POPULAR";position:absolute;top:10px;right:-24px;transform:rotate(45deg);
+    background:var(--accent);color:#fff;font-size:8px;font-weight:900;letter-spacing:1px;
     padding:3px 26px;
   }
-  .tier-name{font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--sa-amber);}
-  .tier-price{font-size:20px;font-weight:800;margin:6px 0 2px;letter-spacing:-.5px;}
+  .tier-name{font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--accent);}
+  .tier-price{font-size:20px;font-weight:800;margin:8px 0 3px;letter-spacing:-.5px;}
   .tier-price small{font-size:10px;font-weight:600;color:var(--text-2);}
-  .tier ul{list-style:none;padding:0;margin:8px 0 0;font-size:10px;color:var(--text-2);line-height:1.7;}
-  .tier ul li::before{content:"✓ ";color:var(--sa-amber);font-weight:900;}
+  .tier ul{list-style:none;padding:0;margin:10px 0 0;font-size:10px;color:var(--text-2);line-height:1.8;}
+  .tier ul li::before{content:"✓ ";color:var(--accent);font-weight:900;}
+
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 16px;}
+  .stat{
+    padding:16px;border-radius:16px;background:var(--card);border:1px solid var(--border);
+  }
+  .stat-num{font-size:22px;font-weight:800;color:var(--accent);letter-spacing:-.5px;}
+  .stat-label{font-size:10px;color:var(--text-2);margin-top:5px;line-height:1.4;text-transform:uppercase;letter-spacing:.5px;}
 
   .mini-player{
-    position:absolute;left:10px;right:10px;bottom:76px;z-index:40;
+    position:absolute;left:10px;right:10px;bottom:78px;z-index:40;
     display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:14px;
-    background:var(--glass);backdrop-filter:blur(24px) saturate(180%);
-    border:1px solid rgba(255,255,255,0.1);cursor:pointer;
-    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+    background:var(--glass);backdrop-filter:blur(28px) saturate(180%);
+    border:1px solid rgba(255,255,255,0.08);cursor:pointer;
+    box-shadow:0 10px 34px rgba(0,0,0,0.6);
   }
   .mp-art{
-    width:38px;height:38px;border-radius:8px;flex:0 0 auto;
-    background:linear-gradient(135deg,var(--sa-amber),var(--accent));
+    width:40px;height:40px;border-radius:8px;flex:0 0 auto;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
     display:grid;place-items:center;font-size:16px;
   }
   .mp-info{flex:1;min-width:0;}
   .mp-title{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .mp-artist{font-size:10px;color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .mp-controls{display:flex;gap:14px;align-items:center;font-size:16px;color:#fff;}
+  .mp-artist{font-size:10px;color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px;}
+  .mp-controls{display:flex;gap:16px;align-items:center;font-size:16px;color:#fff;}
   .mp-controls .play{font-size:22px;}
 
   .tabbar{
     position:absolute;left:0;right:0;bottom:0;z-index:50;
     display:flex;justify-content:space-around;align-items:center;
-    padding:10px 0 22px;
-    background:rgba(15,15,17,0.85);backdrop-filter:blur(28px) saturate(180%);
-    border-top:1px solid rgba(255,255,255,0.08);
+    padding:10px 0 24px;
+    background:rgba(10,10,12,0.88);backdrop-filter:blur(30px) saturate(180%);
+    border-top:1px solid rgba(255,255,255,0.06);
   }
   .tab{
-    display:flex;flex-direction:column;align-items:center;gap:3px;
-    font-size:9px;font-weight:600;color:#6e6e73;cursor:pointer;letter-spacing:.2px;
-    padding:4px 10px;border-radius:10px;transition:color .2s;
+    display:flex;flex-direction:column;align-items:center;gap:4px;
+    font-size:9px;font-weight:600;color:#636366;cursor:pointer;letter-spacing:.2px;
+    padding:5px 10px;border-radius:10px;transition:color .2s;
   }
   .tab .ic{font-size:20px;line-height:1;}
   .tab.active{color:var(--accent);}
-  .tab.active .ic{filter:drop-shadow(0 0 8px rgba(250,36,60,0.6));}
+  .tab.active .ic{filter:drop-shadow(0 0 10px var(--accent-glow));}
 
   .toast{
-    position:absolute;bottom:150px;left:50%;transform:translateX(-50%) translateY(20px);
-    background:rgba(245,166,35,0.95);color:#000;font-size:12px;font-weight:700;
-    padding:10px 18px;border-radius:100px;opacity:0;pointer-events:none;
+    position:absolute;bottom:160px;left:50%;transform:translateX(-50%) translateY(20px);
+    background:var(--accent);color:#fff;font-size:12px;font-weight:700;
+    padding:11px 20px;border-radius:100px;opacity:0;pointer-events:none;
     transition:all .3s ease;z-index:100;white-space:nowrap;
+    box-shadow:0 8px 26px var(--accent-glow);
   }
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
   .sheet{
     position:absolute;inset:0;z-index:200;display:none;
-    background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);
+    background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);
   }
   .sheet.open{display:block;}
   .sheet-inner{
-    position:absolute;left:0;right:0;bottom:0;max-height:82%;overflow-y:auto;
-    background:var(--bg-2);border-radius:24px 24px 0 0;padding:20px 20px 40px;
-    transform:translateY(100%);transition:transform .32s cubic-bezier(.2,.8,.2,1);
+    position:absolute;left:0;right:0;bottom:0;max-height:84%;overflow-y:auto;
+    background:var(--bg-2);border-radius:24px 24px 0 0;padding:22px 20px 44px;
+    transform:translateY(100%);transition:transform .34s cubic-bezier(.2,.8,.2,1);
     border-top:1px solid var(--border);
   }
   .sheet.open .sheet-inner{transform:translateY(0);}
-  .sheet-handle{width:40px;height:4px;border-radius:100px;background:#3a3a3c;margin:0 auto 16px;}
-  .sheet h3{margin:0 0 6px;font-size:22px;font-weight:800;letter-spacing:-.5px;}
-  .sheet p{color:var(--text-2);font-size:13px;line-height:1.6;margin:0 0 16px;}
+  .sheet-handle{width:40px;height:4px;border-radius:100px;background:#333;margin:0 auto 18px;}
+  .sheet h3{margin:0 0 8px;font-size:22px;font-weight:800;letter-spacing:-.5px;}
+  .sheet p{color:var(--text-2);font-size:13px;line-height:1.65;margin:0 0 16px;}
   .sheet-close{
-    position:absolute;top:16px;right:18px;width:30px;height:30px;border-radius:50%;
+    position:absolute;top:18px;right:18px;width:32px;height:32px;border-radius:50%;
     background:var(--card-2);display:grid;place-items:center;font-size:14px;cursor:pointer;
   }
 
-  .empty{text-align:center;color:var(--text-2);font-size:12px;padding:30px 0;}
+  .empty{text-align:center;color:var(--text-3);font-size:12px;padding:34px 0;}
+  .section-note{padding:14px 20px 0;font-size:11px;color:var(--text-2);line-height:1.7;}
+  .section-note strong{color:var(--accent);}
 </style>
 </head>
 <body>
@@ -301,91 +346,173 @@
 
   <div class="scroll" id="scroll">
 
-    <div class="hero">
-      <div class="hero-kicker">Made in Uganda</div>
-      <h1 class="hero-title">Africa's Music.<br/><em>Africa's Vibe.</em></h1>
-      <p class="hero-sub">Premium streaming, real-time nightlife, and local radio — built for how Uganda actually listens.</p>
-      <div class="hero-cta">
-        <button class="btn btn-primary" onclick="toast('Starting your free trial…')">Start Free</button>
-        <button class="btn btn-ghost" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">See Pricing</button>
-      </div>
-    </div>
+    <div class="page active" id="page-home">
 
-    <div class="pillars">
-      <div class="pillar p1" onclick="openSheet('streaming')">
-        <div class="pillar-icon">🎧</div>
-        <div>
-          <div class="pillar-label">Streaming Core</div>
-          <div class="pillar-sub">Local + global catalog</div>
+      <div class="hero">
+        <div class="hero-kicker">Made in Uganda</div>
+        <h1 class="hero-title">Africa's Music.<br/><em>Africa's Vibe.</em></h1>
+        <p class="hero-sub">Premium streaming, real-time nightlife, and local radio — built for how Uganda actually listens.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" onclick="toast('Starting your free trial…')">Start Free</button>
+          <button class="btn btn-ghost" onclick="goTo('page-pricing')">See Pricing</button>
         </div>
       </div>
-      <div class="pillar p2" onclick="document.getElementById('parte').scrollIntoView({behavior:'smooth'})">
-        <div class="pillar-icon">🎉</div>
-        <div>
-          <div class="pillar-label">Parte Weya</div>
-          <div class="pillar-sub">Where's the party?</div>
-        </div>
-      </div>
-      <div class="pillar p3" onclick="document.getElementById('radio').scrollIntoView({behavior:'smooth'})">
-        <div class="pillar-icon">📻</div>
-        <div>
-          <div class="pillar-label">Local Radio</div>
-          <div class="pillar-sub">Live Ugandan stations</div>
-        </div>
-      </div>
-    </div>
 
-    <section>
-      <div class="sec-head">
-        <div class="sec-title">Made in Uganda</div>
-        <div class="sec-link" onclick="toast('Opening full catalog…')">See All</div>
-      </div>
-      <div class="hscroll" id="ugandaRow"></div>
-    </section>
-
-    <section>
-      <div class="sec-head">
-        <div class="sec-title">Afrobeats &amp; Dancehall</div>
-        <div class="sec-link" onclick="toast('Opening genre…')">See All</div>
-      </div>
-      <div class="hscroll" id="afroRow"></div>
-    </section>
-
-    <section id="parte">
-      <div class="sec-head">
-        <div class="sec-title">Parte Weya</div>
-        <div class="sec-link" onclick="openSheet('weya')">This Week →</div>
-      </div>
-      <div class="weya-hero">
-        <span class="weya-badge"><span class="live-dot"></span> Tonight in Kampala</span>
-        <h2 class="weya-title">Where's the party?</h2>
-        <p class="weya-sub">Real-time DJ sets, live bands &amp; comedy — updated every hour.</p>
-        <div class="event-list" id="eventList"></div>
-      </div>
-    </section>
-
-    <section id="radio">
-      <div class="sec-head">
-        <div class="sec-title">Local Radio Hub</div>
-        <div class="sec-link" onclick="openSheet('radio')">All Stations</div>
-      </div>
-      <div class="radio-card">
-        <div class="radio-head">
-          <div class="radio-logo">📻</div>
+      <div class="pillars">
+        <div class="pillar p1" onclick="openSheet('streaming')">
+          <div class="pillar-icon">🎧</div>
           <div>
-            <div class="radio-name">Capital FM Uganda</div>
-            <div class="radio-show">The Late Night Sessions · DJ Kasumali</div>
+            <div class="pillar-label">Streaming Core</div>
+            <div class="pillar-sub">Local + global catalog</div>
           </div>
-          <div class="radio-eq"><span></span><span></span><span></span><span></span><span></span></div>
         </div>
-        <div class="station-list" id="stationList"></div>
+        <div class="pillar p2" onclick="goTo('page-weya')">
+          <div class="pillar-icon">🎉</div>
+          <div>
+            <div class="pillar-label">Parte Weya</div>
+            <div class="pillar-sub">Where's the party?</div>
+          </div>
+        </div>
+        <div class="pillar p3" onclick="goTo('page-radio')">
+          <div class="pillar-icon">📻</div>
+          <div>
+            <div class="pillar-label">Local Radio</div>
+            <div class="pillar-sub">Live Ugandan stations</div>
+          </div>
+        </div>
       </div>
-    </section>
 
-    <section id="pricing">
-      <div class="sec-head">
-        <div class="sec-title">Pricing Built for Uganda</div>
+      <section>
+        <div class="sec-head">
+          <div class="sec-title">Made in Uganda</div>
+          <div class="sec-link" onclick="toast('Opening full catalog…')">See All</div>
+        </div>
+        <div class="hscroll" id="ugandaRow"></div>
+      </section>
+
+      <section>
+        <div class="sec-head">
+          <div class="sec-title">Afrobeats &amp; Dancehall</div>
+          <div class="sec-link" onclick="toast('Opening genre…')">See All</div>
+        </div>
+        <div class="hscroll" id="afroRow"></div>
+      </section>
+
+      <section>
+        <div class="sec-head">
+          <div class="sec-title">Tonight in Kampala</div>
+          <div class="sec-link" onclick="goTo('page-weya')">Parte Weya →</div>
+        </div>
+        <div class="event-list" id="homeEventList"></div>
+      </section>
+
+      <section>
+        <div class="sec-head">
+          <div class="sec-title">Local Radio Hub</div>
+          <div class="sec-link" onclick="goTo('page-radio')">All Stations</div>
+        </div>
+        <div class="radio-card">
+          <div class="radio-head">
+            <div class="radio-logo">📻</div>
+            <div>
+              <div class="radio-name">Capital FM Uganda</div>
+              <div class="radio-show">The Late Night Sessions · DJ Kasumali</div>
+            </div>
+            <div class="radio-eq"><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
+          <div class="station-list" id="stationListHome"></div>
+        </div>
+      </section>
+
+      <div class="empty">You're all caught up · Sautify v1.0</div>
+    </div>
+    <!-- ==================== PARTE WEYA PAGE ==================== -->
+    <div class="page" id="page-weya">
+      <div class="weya-hero">
+        <span class="weya-badge"><span class="live-dot"></span> Live · Kampala</span>
+        <h2 class="weya-title">Parte Weya</h2>
+        <p class="weya-sub">Where's the party? Real-time DJ sets, live bands, comedy &amp; concerts — updated every hour.</p>
+        <button class="btn btn-primary" onclick="toast('RSVP for tonight')">RSVP Tonight</button>
       </div>
+
+      <div class="filter-row">
+        <div class="chip active" onclick="setChip(this)">All</div>
+        <div class="chip" onclick="setChip(this)">Tonight</div>
+        <div class="chip" onclick="setChip(this)">This Week</div>
+        <div class="chip" onclick="setChip(this)">DJ Sets</div>
+        <div class="chip" onclick="setChip(this)">Live Bands</div>
+        <div class="chip" onclick="setChip(this)">Comedy</div>
+        <div class="chip" onclick="setChip(this)">Concerts</div>
+      </div>
+
+      <section style="margin-top:6px;">
+        <div class="sec-head">
+          <div class="sec-title">Tonight</div>
+          <div class="sec-link" onclick="toast('Tonight list refreshed')">Refresh</div>
+        </div>
+        <div class="event-list" id="weyaTonight"></div>
+      </section>
+
+      <section>
+        <div class="sec-head">
+          <div class="sec-title">This Week</div>
+        </div>
+        <div class="event-list" id="weyaWeek"></div>
+      </section>
+
+      <section>
+        <div class="sec-head">
+          <div class="sec-title">Featured Venues</div>
+          <div class="sec-link" onclick="toast('All venues')">See All</div>
+        </div>
+        <div id="venueList"></div>
+      </section>
+
+      <section>
+        <div class="sec-head">
+          <div class="sec-title">Artists &amp; DJs</div>
+        </div>
+        <div class="hscroll" id="djRow"></div>
+      </section>
+
+      <div class="empty">More events drop every hour · Parte Weya</div>
+    </div>
+
+    <!-- ==================== RADIO PAGE ==================== -->
+    <div class="page" id="page-radio">
+      <div class="weya-hero">
+        <span class="weya-badge">📻 Live Radio</span>
+        <h2 class="weya-title">Radio, Reimagined</h2>
+        <p class="weya-sub">Radio is the heartbeat of Ugandan music discovery. Stream every major station, follow shows, and get notified when your DJ goes live.</p>
+      </div>
+
+      <section style="margin-top:6px;">
+        <div class="sec-head">
+          <div class="sec-title">Top Stations</div>
+        </div>
+        <div class="event-list" id="radioStations"></div>
+      </section>
+
+      <section>
+        <div class="sec-head">
+          <div class="sec-title">Follow Shows</div>
+        </div>
+        <div class="event-list" id="radioShows"></div>
+      </section>
+
+      <div class="section-note">
+        <strong>Deeply integrated with Parte Weya:</strong> "This DJ is on radio now and playing at Club X tonight."
+      </div>
+    </div>
+
+    <!-- ==================== PRICING PAGE ==================== -->
+    <div class="page" id="page-pricing">
+      <div class="weya-hero">
+        <span class="weya-badge">UGX Pricing</span>
+        <h2 class="weya-title">Pricing Built for Uganda</h2>
+        <p class="weya-sub">Not a discount version of Spotify — a fundamentally different pricing philosophy built around Ugandan income levels, mobile money, and usage patterns.</p>
+      </div>
+
       <div class="pricing">
         <div class="tier">
           <div class="tier-name">Free</div>
@@ -408,16 +535,106 @@
           <ul><li>5 accounts</li><li>All Premium</li></ul>
         </div>
       </div>
-      <div style="padding:14px 20px 0;font-size:11px;color:var(--text-2);line-height:1.6;">
-        Pay with <strong style="color:var(--sa-amber)">MTN Mobile Money</strong>, 
-        <strong style="color:var(--sa-amber)">Airtel Money</strong> or Flutterwave. 
-        1/5 the price of Spotify Premium.
-      </div>
-    </section>
 
-    <div class="empty">You're all caught up · Sautify v1.0</div>
+      <div class="section-note">
+        Pay with <strong>MTN Mobile Money</strong>, <strong>Airtel Money</strong> or Flutterwave.
+        Sautify Student is 1/5 the price of Spotify Premium. Sautify Premium is 1/3 the price.
+      </div>
+
+      <section>
+        <div class="sec-head">
+          <div class="sec-title">The Market</div>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-num">300K</div>
+            <div class="stat-label">University Students</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">7.5M</div>
+            <div class="stat-label">Working Population (24–35)</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">22.5K</div>
+            <div class="stat-label">Year 1 Paying Users</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">1.49B</div>
+            <div class="stat-label">Year 1 Revenue (UGX)</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="empty">Tap any tier to subscribe · Mobile money only</div>
+    </div>
+
+    <!-- ==================== SEARCH PAGE ==================== -->
+    <div class="page" id="page-search">
+      <div class="weya-hero">
+        <span class="weya-badge">🔍 Search</span>
+        <h2 class="weya-title">Find Anything</h2>
+        <p class="weya-sub">Search artists, songs, DJs, venues, radio shows, and events — all in one place.</p>
+      </div>
+      <div class="filter-row">
+        <div class="chip active" onclick="setChip(this)">All</div>
+        <div class="chip" onclick="setChip(this)">Artists</div>
+        <div class="chip" onclick="setChip(this)">Songs</div>
+        <div class="chip" onclick="setChip(this)">Venues</div>
+        <div class="chip" onclick="setChip(this)">Events</div>
+        <div class="chip" onclick="setChip(this)">Radio</div>
+      </div>
+      <div class="empty">Type to start searching · Sautify</div>
+    </div>
+
+    <!-- ==================== LIBRARY PAGE ==================== -->
+    <div class="page" id="page-library">
+      <div class="weya-hero">
+        <span class="weya-badge">📚 Your Library</span>
+        <h2 class="weya-title">Your Music</h2>
+        <p class="weya-sub">Playlists, downloads, followed artists, and saved events — all offline-ready.</p>
+      </div>
+
+      <section style="margin-top:6px;">
+        <div class="sec-head">
+          <div class="sec-title">Recently Played</div>
+        </div>
+        <div class="hscroll" id="libraryRow"></div>
+      </section>
+
+      <section>
+        <div class="sec-head">
+          <div class="sec-title">Your Playlists</div>
+          <div class="sec-link" onclick="toast('Create playlist')">+ New</div>
+        </div>
+        <div class="event-list">
+          <div class="event" onclick="toast('Opening playlist')">
+            <div class="event-time"><div class="h">♪</div><div class="d">Mix</div></div>
+            <div class="event-body">
+              <div class="event-name">Kampala Nights</div>
+              <div class="event-venue">32 songs · Afrobeats &amp; Dancehall</div>
+            </div>
+          </div>
+          <div class="event" onclick="toast('Opening playlist')">
+            <div class="event-time"><div class="h">♪</div><div class="d">Mix</div></div>
+            <div class="event-body">
+              <div class="event-name">Kadongo Kamu Classics</div>
+              <div class="event-venue">18 songs · Ugandan heritage</div>
+            </div>
+          </div>
+          <div class="event" onclick="toast('Opening playlist')">
+            <div class="event-time"><div class="h">♪</div><div class="d">Mix</div></div>
+            <div class="event-body">
+              <div class="event-name">Radio Favorites</div>
+              <div class="event-venue">45 songs · Saved from Capital FM</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
   </div>
 
+  <!-- MINI PLAYER -->
   <div class="mini-player" id="miniPlayer" onclick="openSheet('player')">
     <div class="mp-art">♪</div>
     <div class="mp-info">
@@ -431,26 +648,29 @@
     </div>
   </div>
 
+  <!-- TAB BAR -->
   <nav class="tabbar">
-    <div class="tab active" onclick="setTab(this,'home')">
+    <div class="tab active" data-page="page-home" onclick="tabClick(this)">
       <span class="ic">🏠</span><span>Home</span>
     </div>
-    <div class="tab" onclick="setTab(this,'search')">
+    <div class="tab" data-page="page-search" onclick="tabClick(this)">
       <span class="ic">🔍</span><span>Search</span>
     </div>
-    <div class="tab" onclick="setTab(this,'weya')">
+    <div class="tab" data-page="page-weya" onclick="tabClick(this)">
       <span class="ic">🎉</span><span>Parte Weya</span>
     </div>
-    <div class="tab" onclick="setTab(this,'radio')">
+    <div class="tab" data-page="page-radio" onclick="tabClick(this)">
       <span class="ic">📻</span><span>Radio</span>
     </div>
-    <div class="tab" onclick="setTab(this,'library')">
+    <div class="tab" data-page="page-library" onclick="tabClick(this)">
       <span class="ic">📚</span><span>Library</span>
     </div>
   </nav>
 
+  <!-- TOAST -->
   <div class="toast" id="toast"></div>
 
+  <!-- SHEET -->
   <div class="sheet" id="sheet" onclick="if(event.target===this)closeSheet()">
     <div class="sheet-inner">
       <div class="sheet-handle"></div>
@@ -462,11 +682,11 @@
 </div>
 
 <script>
-/* ============ HELPERS ============ */
+/* ============ ALBUM ART GENERATOR ============ */
 const albumCover = (seed) => {
-  const hues = [25, 45, 340, 200, 280, 10];
+  const hues = [230, 250, 210, 260, 220, 240];
   const h = hues[seed % hues.length];
-  return `linear-gradient(135deg, hsl(${h},70%,55%), hsl(${(h+40)%360},65%,35%))`;
+  return `linear-gradient(135deg, hsl(${h},75%,58%), hsl(${(h+30)%360},70%,38%))`;
 };
 
 /* ============ DATA ============ */
@@ -495,6 +715,28 @@ const events = [
   {time:"7PM", day:"Tomorrow", name:"Kadongo Kamu Night", venue:"Bunker's, Bugolobi", tag:"Culture", rsvp:"RSVP"}
 ];
 
+const weekEvents = [
+  {time:"FRI", day:"22:00", name:"DJ Roja & Slick Stuart", venue:"Club Guvnor, Kampala", tag:"DJ Set", rsvp:"RSVP"},
+  {time:"SAT", day:"21:00", name:"Kenneth Mugabi Live", venue:"Theatre Labonita", tag:"Live Band", rsvp:"Tickets"},
+  {time:"SUN", day:"17:00", name:"Sunday Jazz Brunch", venue:"Serena Hotel", tag:"Live Band", rsvp:"RSVP"},
+  {time:"WED", day:"20:00", name:"Open Mic Comedy Night", venue:"Bunker's, Bugolobi", tag:"Comedy", rsvp:"RSVP"}
+];
+
+const venues = [
+  {name:"Club Silk", meta:"Industrial Area · 2 events tonight", vibe:"Amapiano, Dancehall, Afro-house"},
+  {name:"Jazz Ville", meta:"Kampala · 1 event tonight", vibe:"Live jazz, soul, Afro-fusion"},
+  {name:"Theatre Labonita", meta:"Kampala · 2 events this week", vibe:"Comedy, live bands, theatre"},
+  {name:"Bunker's", meta:"Bugolobi · 3 events this week", vibe:"Kadongo Kamu, reggae, chill"}
+];
+
+const djs = [
+  {t:"DJ Kasumali", a:"Amapiano · Club Silk", s:1},
+  {t:"DJ Roja", a:"Dancehall · Guvnor", s:2},
+  {t:"Slick Stuart", a:"Afrobeats · Kampala", s:3},
+  {t:"Kenneth Mugabi", a:"Live Band · Labonita", s:4},
+  {t:"DJ Crim", a:"Hip-hop · Bunker's", s:5}
+];
+
 const stations = [
   {ico:"📻", nm:"Capital FM", sh:"Late Night"},
   {ico:"🎙️", nm:"Radio Simba", sh:"Luganda Hits"},
@@ -503,9 +745,16 @@ const stations = [
   {ico:"🌍", nm:"BBC Africa", sh:"News"}
 ];
 
-/* ============ RENDER ============ */
+const shows = [
+  {time:"LIVE", day:"Now", name:"The Late Night Sessions", venue:"Capital FM · DJ Kasumali", tag:"On Air", rsvp:"Listen"},
+  {time:"9PM", day:"Tonight", name:"Luganda Hits Countdown", venue:"Radio Simba", tag:"Music", rsvp:"Follow"},
+  {time:"6AM", day:"Tomorrow", name:"The Morning Drive", venue:"Sanyu FM", tag:"Talk", rsvp:"Follow"},
+  {time:"10PM", day:"Fri", name:"Party Mix Live", venue:"Galaxy FM", tag:"DJ Set", rsvp:"Remind"}
+];
+
+/* ============ RENDER FUNCTIONS ============ */
 function renderAlbumRow(el, tracks){
-  el.innerHTML = tracks.map((x,i)=>`
+  el.innerHTML = tracks.map(x=>`
     <div class="album" onclick="playTrack('${x.t}','${x.a}')">
       <div class="album-art" style="background:${albumCover(x.s)}">
         <div class="play-fab">▶</div>
@@ -515,22 +764,49 @@ function renderAlbumRow(el, tracks){
     </div>
   `).join("");
 }
+
+function renderEventList(el, list){
+  el.innerHTML = list.map(e=>`
+    <div class="event" onclick="toast('${e.rsvp} · ${e.name}')">
+      <div class="event-time"><div class="h">${e.time}</div><div class="d">${e.day}</div></div>
+      <div class="event-body">
+        <div class="event-name">${e.name}</div>
+        <div class="event-venue">📍 ${e.venue}</div>
+        <div class="event-tag">${e.tag}</div>
+      </div>
+      <div class="event-rsvp">${e.rsvp}</div>
+    </div>
+  `).join("");
+}
+
+function renderVenues(el, list){
+  el.innerHTML = list.map(v=>`
+    <div class="venue-card" onclick="toast('Opening ${v.name}')">
+      <div class="venue-img">🏛️</div>
+      <div class="venue-info">
+        <div class="venue-name">${v.name}</div>
+        <div class="venue-meta">${v.meta}</div>
+        <div class="venue-vibe">${v.vibe}</div>
+      </div>
+    </div>
+  `).join("");
+}
+
+/* ============ INIT RENDER ============ */
 renderAlbumRow(document.getElementById('ugandaRow'), ugandaTracks);
 renderAlbumRow(document.getElementById('afroRow'), afroTracks);
+renderAlbumRow(document.getElementById('djRow'), djs);
+renderAlbumRow(document.getElementById('libraryRow'), ugandaTracks.slice(0,5));
 
-document.getElementById('eventList').innerHTML = events.map(e=>`
-  <div class="event" onclick="toast('RSVP for ${e.name}')">
-    <div class="event-time"><div class="h">${e.time}</div><div class="d">${e.day}</div></div>
-    <div class="event-body">
-      <div class="event-name">${e.name}</div>
-      <div class="event-venue">📍 ${e.venue}</div>
-      <div class="event-tag">${e.tag}</div>
-    </div>
-    <div class="event-rsvp">${e.rsvp}</div>
-  </div>
-`).join("");
+renderEventList(document.getElementById('homeEventList'), events.slice(0,3));
+renderEventList(document.getElementById('weyaTonight'), events);
+renderEventList(document.getElementById('weyaWeek'), weekEvents);
+renderEventList(document.getElementById('radioStations'), shows.slice(0,1).concat(events.slice(0,3)));
+renderEventList(document.getElementById('radioShows'), shows);
 
-document.getElementById('stationList').innerHTML = stations.map(s=>`
+renderVenues(document.getElementById('venueList'), venues);
+
+document.getElementById('stationListHome').innerHTML = stations.map(s=>`
   <div class="station" onclick="toast('Tuning into ${s.nm}…')">
     <div class="ico">${s.ico}</div>
     <div class="nm">${s.nm}</div>
@@ -538,7 +814,31 @@ document.getElementById('stationList').innerHTML = stations.map(s=>`
   </div>
 `).join("");
 
-/* ============ INTERACTIONS ============ */
+/* ============ NAVIGATION ============ */
+function goTo(pageId){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const target = document.getElementById(pageId);
+  if(target) target.classList.add('active');
+  document.querySelectorAll('.tab').forEach(t=>{
+    t.classList.toggle('active', t.dataset.page === pageId);
+  });
+  document.getElementById('scroll').scrollTo({top:0, behavior:'smooth'});
+}
+
+function tabClick(el){
+  goTo(el.dataset.page);
+  if(el.dataset.page === 'page-search') toast('Search · type to begin');
+}
+
+/* ============ CHIPS ============ */
+function setChip(el){
+  const parent = el.parentElement;
+  parent.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  toast(el.textContent + ' filter applied');
+}
+
+/* ============ PLAYER ============ */
 let isPlaying = false;
 function togglePlay(){
   isPlaying = !isPlaying;
@@ -553,22 +853,43 @@ function playTrack(title, artist){
   toast('Now playing · ' + title);
 }
 
-function setTab(el, name){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  if(name === 'weya'){
-    document.getElementById('parte').scrollIntoView({behavior:'smooth', block:'start'});
-  } else if(name === 'radio'){
-    document.getElementById('radio').scrollIntoView({behavior:'smooth', block:'start'});
-  } else if(name === 'search'){
-    toast('Search · coming soon');
-  } else if(name === 'library'){
-    toast('Your Library · coming soon');
-  } else {
-    document.getElementById('scroll').scrollTo({top:0, behavior:'smooth'});
-  }
-}
-
+/* ============ TOAST ============ */
 let toastTimer;
 function toast(msg){
-  const t = document.getElementById('
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 1900);
+}
+
+/* ============ SHEET ============ */
+function openSheet(type){
+  const c = document.getElementById('sheetContent');
+  const content = {
+    profile: `<h3>Your Account</h3><p>Signed in as <strong style="color:#4D6BFE">guest@sautify.ug</strong><br/>Free tier · Upgrade to unlock offline &amp; Parte Weya perks.</p><button class="btn btn-primary" onclick="closeSheet();toast('Upgrading…')">Upgrade Plan</button>`,
+    streaming: `<h3>Streaming Core</h3><p>A clean, premium music player with a rich catalog of local and international music. Offline downloads, HD audio, curated Ugandan playlists, and artist discovery — all at a fraction of global pricing.</p>`,
+    weya: `<h3>Parte Weya · This Week</h3><p>Full week of events across Kampala and beyond. Plan your week, RSVP, and share with friends.</p>`,
+    radio: `<h3>Local Radio Hub</h3><p>Live streams of top Ugandan radio stations, full program schedules, follow stations and shows, and push notifications when your favorite DJ goes live.</p>`,
+    player: `<h3>Now Playing</h3><p><strong>Sitya Loss</strong> — Eddy Kenzo<br/>From the album <em>Made in Uganda</em>.</p><button class="btn btn-primary" onclick="closeSheet();toast('Added to Library')">Add to Library</button>`
+  };
+  c.innerHTML = content[type] || content.profile;
+  document.getElementById('sheet').classList.add('open');
+}
+
+function closeSheet(){
+  document.getElementById('sheet').classList.remove('open');
+}
+
+/* ============ CLOCK ============ */
+function updateClock(){
+  const d = new Date();
+  const h = d.getHours() % 12 || 12;
+  const m = String(d.getMinutes()).padStart(2,'0');
+  document.getElementById('clock').textContent = `${h}:${m}`;
+}
+updateClock();
+setInterval(updateClock, 30000);
+</script>
+</body>
+</html>
